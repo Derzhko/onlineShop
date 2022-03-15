@@ -4,6 +4,13 @@ import bigStar from '../assets/bigStar.png'
 
 const DevicePage = () => {
     const device = {id: 1, name: "12 pro", price: 100000, rating: 0, img: "bf92b742-d0e9-4eaf-b4fa-0e26c1b7a57a.jpg", typeId: 2, brandId: 2}
+    const description = [
+        {id: 1, title: 'Оперативная память', description: '5 гб'},
+        {id: 2, title: 'Камера', description: '12 мп'},
+        {id: 3, title: 'Процессор', description: 'Инетл 2'},
+        {id: 4, title: 'Количество ядер', description: '4'},
+        {id: 5, title: 'Аккумулятор', description: '4000 mAh'},
+    ]
     return (
         <Container className="mt-3">
             <Row>
@@ -30,6 +37,14 @@ const DevicePage = () => {
                         <Button variant={"outline-dark"}>Добавить в корзину</Button>
                     </Card>
                 </Col>
+            </Row>
+            <Row className="d-flex flex-column m-3">
+                <h1>Характеристики</h1>
+                {description.map((info, index) => 
+                    <Row key={info.id} style={{background: index % 2 === 0 ? 'lightgray' : 'transparent', padding: 10}}>
+                        {info.title}: {info.description}
+                    </Row>
+                )}
             </Row>
         </Container>
     );
